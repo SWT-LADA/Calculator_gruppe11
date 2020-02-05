@@ -34,6 +34,7 @@ namespace ClassLibrary1
 
         [TestCase(2, 4, -2)]
         [TestCase(-2, -4, 2)]
+        [TestCase(-2, 3, -5)]
 
 
         public void Subtract(double a, double b, double x)
@@ -42,18 +43,29 @@ namespace ClassLibrary1
         }
 
 
-        [TestCase(2, 5, 10)]
-        [TestCase(5, 7, 35)]
+        [TestCase(2, 4, 8)]
+        [TestCase(-2, -4, 8)]
+        [TestCase(-2, 3, -6)]
+        [TestCase(5, 0, 0)]
+
+
         public void Multiply(double a, double b, double res)
         {
             Assert.That(calculator.Multiply(a, b), Is.EqualTo(res));
 
         }
 
-        [Test]
-        public void Power_4opi2_Return16()
+
+        [TestCase(2, 4, 16)]
+        [TestCase(-4, -2, 0.0625)]
+        [TestCase(3, -2, -8)]
+        [TestCase(0, 5, 1)]
+        [TestCase(1, 5, 5)]
+
+
+        public void Power(double a, double b, double res)
         {
-            Assert.That(calculator.Power(2, 4), Is.EqualTo(16));
+            Assert.That(calculator.Power(a, b), Is.EqualTo(res).Within(0.0001));
         }
 
         
