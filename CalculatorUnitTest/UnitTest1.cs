@@ -21,34 +21,22 @@ namespace CalculatorUnitTest
         [TestCase(2, 4, 6)]
         [TestCase(-2,-4,-6)]
 
+
         public void Add(double a, double b, double x)
         {
             Assert.That(calculator.Add(a, b), Is.EqualTo(x));
         }
 
-        [Test]
-        public void Add_Add2and4_Return6()
+
+        [TestCase(2, 4, -2)]
+        [TestCase(-2, -4, 2)]
+
+
+        public void Subtract(double a, double b, double x)
         {
-            Assert.That(calculator.Add(2, 4), Is.EqualTo(6));
+            Assert.That(calculator.Subtract(a, b), Is.EqualTo(x));
         }
 
-        [Test]
-        public void Add_AddMinus2Andminus4_Returnminus6()
-        {
-            Assert.That(calculator.Add(-2,-4), Is.EqualTo(-6));
-        }
-
-        [Test]
-        public void Subtract_2Minus4_ReturnMinus2()
-        {
-            Assert.That(calculator.Subtract(2,4), Is.EqualTo(-2));
-        }
-
-        [Test]
-        public void Subtract_minus2minusMinus4_Return2()
-        {
-            Assert.That(calculator.Subtract(-2,-4), Is.EqualTo(2));
-        }
 
         [Test]
         public void Multiply_2and4_Return8()
