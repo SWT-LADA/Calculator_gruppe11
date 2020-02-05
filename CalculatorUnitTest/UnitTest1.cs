@@ -50,16 +50,12 @@ namespace CalculatorUnitTest
             Assert.That(calculator.Subtract(-2,-4), Is.EqualTo(2));
         }
 
-        [Test]
-        public void Multiply_2and4_Return8()
+        [TestCase(2,5,10)]
+        [TestCase(5,7,35)]
+        public void Multiply(double a, double b, double res)
         {
-            Assert.That(calculator.Multiply(2,4), Is.EqualTo(8));
-        }
+            Assert.That(calculator.Multiply(a, b), Is.EqualTo(res));
 
-        [Test]
-        public void Multiply_minus2andminus4_8()
-        {
-            Assert.That(calculator.Multiply(-2,-4), Is.EqualTo(8));
         }
 
         [Test]
