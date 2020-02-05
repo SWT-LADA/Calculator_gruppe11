@@ -23,6 +23,7 @@ namespace ClassLibrary1
 
         [TestCase(2, 4, 6)]
         [TestCase(-2, -4, -6)]
+        [TestCase(-2, 3, 1)]
 
 
         public void Add(double a, double b, double x)
@@ -54,6 +55,8 @@ namespace ClassLibrary1
         {
             Assert.That(calculator.Power(2, 4), Is.EqualTo(16));
         }
+
+        
 
 
     }
