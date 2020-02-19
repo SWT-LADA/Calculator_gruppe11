@@ -91,14 +91,19 @@ namespace ClassLibrary1
             Assert.That(calculator.Accumulator, Is.EqualTo(4));
         }
 
-        [Test]
-        public void Accumulator_MultiplyPower_ReturnEight()
-        {
-            calculator.Multiply(4, 2);
-            calculator.Power(3, 2);
+        [TestCase(2, 3, 3, 2, 6)]
+        [TestCase(4, 1, -2, -2, 4)]
+        [TestCase(2, 3, -1, 2, -2)]
+        [TestCase(2, 3, -1, 2, -2)]
 
-            Assert.That(calculator.Accumulator, Is.EqualTo(8));
+        public void Accumulator_MultiplyPower_ReturnEight(double a, double b, double c, double d, double res)
+        {
+            calculator.Power(a, b);
+            calculator.Multiply(c, d);
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(res));
         }
+
 
         [Test]
         public void Clear_OneOperation_ReturnZero()
@@ -114,6 +119,17 @@ namespace ClassLibrary1
         {
             calculator.Add(2, 2);
             calculator.Power(3, 2);
+            calculator.Clear();
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Clear_ThreeOperations_ReturnZero()
+        {
+            calculator.Add(2, 2);
+            calculator.Power(3, 2);
+            calculator.Multiply(2, 3);
             calculator.Clear();
 
             Assert.That(calculator.Accumulator, Is.EqualTo(0));
