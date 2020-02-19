@@ -68,8 +68,55 @@ namespace ClassLibrary1
             Assert.That(calculator.Power(a, b), Is.EqualTo(res).Within(0.0001));
         }
 
-        
+        [Test]
+        public void Accumulator_IsZero_ReturnZero()
+        {
+            Assert.That(calculator.Accumulator, Is.EqualTo(0));
+        }
 
+        [Test]
+        public void Accumulator_Add_ReturnFour()
+        {
+            calculator.Add(2, 2);
 
+            Assert.That(calculator.Accumulator, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Accumulator_SubstractAdd_ReturnFour()
+        {
+            calculator.Subtract(4, 2);
+            calculator.Add(2, 2);
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Accumulator_MultiplyPower_ReturnEight()
+        {
+            calculator.Multiply(4, 2);
+            calculator.Power(3, 2);
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Clear_OneOperation_ReturnZero()
+        {
+            calculator.Add(2, 2);
+            calculator.Clear();
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Clear_TwoOperations_ReturnZero()
+        {
+            calculator.Add(2, 2);
+            calculator.Power(3, 2);
+            calculator.Clear();
+
+            Assert.That(calculator.Accumulator, Is.EqualTo(0));
+        }
     }
 }
