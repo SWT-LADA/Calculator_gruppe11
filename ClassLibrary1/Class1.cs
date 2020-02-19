@@ -128,7 +128,7 @@ namespace ClassLibrary1
         public void Clear_ThreeOperations_ReturnZero()
         {
             calculator.Add(2, 2);
-            calculator.Power(3, 3);
+            calculator.Power(3, 5);
             calculator.Multiply(2, 3);
             calculator.Clear();
 
